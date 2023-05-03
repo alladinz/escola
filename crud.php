@@ -13,4 +13,18 @@
         header("Location: index.html"); // Volta
     }
 
+    if (isset($_POST["excluir"])){
+
+        $comando = $pdo->prepare("DELETE FROM alunos WHERE cpf='$cpf' ");
+        $resultado = $comando->execute();
+        header("Location: index.html"); // Volta
+    }
+
+    if (isset($_POST["alterar"])){
+
+        $comando = $pdo->prepare("UPDATE alunos SET nome='$nome', idade='$idade' WHERE cpf='$cpf' ");
+        $resultado = $comando->execute();
+        header("Location: index.html"); // Volta
+    }
+
 ?>
